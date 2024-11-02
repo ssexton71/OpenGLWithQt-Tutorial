@@ -12,11 +12,11 @@ License    : BSD License,
 #ifndef RectangleWindow_H
 #define RectangleWindow_H
 
-#include <QOpenGLVertexArrayObject>
-#include <QOpenGLBuffer>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
+#include <QtOpenGL/QOpenGLVertexArrayObject>
+#include <QtOpenGL/QOpenGLBuffer>
+#include <QtOpenGL/QOpenGLShaderProgram>
+#include <QtOpenGLWidgets/QOpenGLWidget>
+#include <QtGui/QOpenGLFunctions>
 
 /*	This is the window that shows the two triangles to form a rectangle.
 	We derive from our QOpenGLWidget base class and implement the

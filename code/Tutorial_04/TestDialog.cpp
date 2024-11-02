@@ -37,14 +37,14 @@ TestDialog::TestDialog() :
 	// *** create the layout and insert widget container
 
 	QVBoxLayout * vlay = new QVBoxLayout;
-	vlay->setMargin(0);
+	vlay->setContentsMargins(0,0,0,0);
 	vlay->setSpacing(0);
 	vlay->addWidget(m_rectangleWindow);
 
 	// now create some buttons at the bottom
 
 	QHBoxLayout * hlay = new QHBoxLayout;
-	hlay->setMargin(0);
+	hlay->setContentsMargins(0,0,0,0);
 
 	QPushButton * changeColorBtn = new QPushButton(tr("Change colors"), this);
 	connect(changeColorBtn, &QPushButton::clicked, this, &TestDialog::onChangeColors);
@@ -64,7 +64,7 @@ TestDialog::TestDialog() :
 
 	setLayout(vlay);
 
-	qsrand(428); // for now use fixed seed so that we get the same colors every time
+	srand(428); // for now use fixed seed so that we get the same colors every time
 }
 
 

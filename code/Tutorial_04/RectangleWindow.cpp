@@ -42,7 +42,6 @@ RectangleWindow::~RectangleWindow() {
 
 
 void RectangleWindow::initializeGL() {
-	initializeOpenGLFunctions();
 
 	// this function is called once, when the window is first shown, i.e. when
 	// the the window content is first rendered
@@ -130,6 +129,9 @@ void RectangleWindow::initializeGL() {
 
 
 void RectangleWindow::paintGL() {
+	makeCurrent();
+	initializeOpenGLFunctions();
+
 	// set the background color = clear color
 	glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -201,9 +203,9 @@ void RectangleWindow::animate() {
 
 	// linear blending in HSV space will probably look "interesting", but it's simple
 	for (unsigned int i=0; i<m_vertexColors.size(); ++i) {
-		double fromH, fromS, fromV;
+		float fromH, fromS, fromV;
 		m_fromColors[i].getHsvF(&fromH, &fromS, &fromV);
-		double toH, toS, toV;
+		float toH, toS, toV;
 		m_toColors[i].getHsvF(&toH, &toS, &toV);
 
 		m_vertexColors[i] = QColor::fromHsvF(toH*alpha + fromH*(1-alpha),
